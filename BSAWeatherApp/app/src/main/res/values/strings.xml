@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">BSA Weather App</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
+    <string name="generate_content" translatable="false">BSA Weather App</string>
+    <string name="condition" translatable="false">%s</string>
+    <string name="dateAndTime" translatable="false">%s</string>
+    <string name="temperature">Temperature:\t%s</string>
+    <string name="pressure">Pressure:\t%s</string>
+    <string name="humidity">Humidity:\t%s</string>
+    <string name="cloudCover">Cloud cover:\t%s</string>
+    <string name="windSpeed">Wind speed:\t%s</string>
+    <string name="windDirection">Wind Direction:\t%s</string>
+    <string name="rain">Rain (last 3h):\t%s</string>
+    <string name="snow">Snow (last 3h):\t%s</string>
+    <string name="noRain">No Rain</string>
+    <string name="noSnow">No Snow</string>
+    <string name="forecast">Forecast for</string>
+
+    <string name="metricSystem">Metric system</string>
+    <string name="imperialSystem">Imperial system</string>
+    <string name="metrics">Metrics</string>
+    <string name="settings_use_metric_system_key" translatable="false">use_metric_system</string>
+
+    <string name="city">City</string>
+    <string name="defaultCity">Vienna</string>
+    <string name="settings_output_text_default">Choose your City...</string>
+    <string name="settings_city_key" translatable="false">select_city</string>
+
+    <string name="settings_output_visible_key" translatable="false">output_visible</string>
+    <string name="settings_output_visible_off" translatable="false">The text view is hidden.</string>
+    <string name="settings_output_visible_on" translatable="false">The text view is visible.</string>
+    <string name="settings_output_visible_title" translatable="false">Display text view</string>
+
+
+    <string name="settings_output_text_key" translatable="false">output_text</string>
+    <string name="settings_output_text_summary" translatable="false">Display text summary.</string>
+    <string name="settings_output_text_title" translatable="false">Display text</string>
+
+    <string name="refresh">Refresh</string>
+    <string name="speedMetric">kph</string>
+    <string name="speedImperial">mph</string>
+    <string name="picDescription">Weather Icon</string>
+
+</resources>
