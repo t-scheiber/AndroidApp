@@ -1,0 +1,19 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBoxPreference
+        android:defaultValue="@bool/useMetricSystem"
+        android:key="@string/settings_use_metric_system_key"
+        android:summaryOff="@string/imperialSystem"
+        android:summaryOn="@string/metricSystem"
+        android:title="@string/metrics"
+        />
+
+    <EditTextPreference
+        android:defaultValue="@string/defaultCity"
+        android:key="@string/settings_city_key"
+        android:summary="@string/settings_output_text_summary"
+        android:title="@string/city"
+        app:useSimpleSummaryProvider="true"
+        />
+
+</PreferenceScreen>
