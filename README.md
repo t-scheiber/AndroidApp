@@ -1,4 +1,4 @@
-# AndroidApps
+# AndroidApp
 Android App that uses the Open WeatherAPI to get a Weather Forecast for a Selected City.
 
 The forecast is for 5 days, made every 3 hours. The App is available in German and English.
