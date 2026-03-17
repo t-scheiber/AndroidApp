@@ -10,3 +10,9 @@ captures/
 *.ap_
 *.aab
 output.json
+
+.claude/
+.vscode/
+.cursor/
+.chatgpt/
+.gemini/
