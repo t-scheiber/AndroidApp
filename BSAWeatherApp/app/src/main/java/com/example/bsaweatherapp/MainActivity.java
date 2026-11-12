@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -92,14 +93,18 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private void loadWebResult() {
         getLang();
+        if (BuildConfig.OPENWEATHER_API_KEY.isEmpty()) {
+            Log.w(LOG_TAG, "No OpenWeather API key configured");
+            Toast.makeText(this, R.string.no_api_key, Toast.LENGTH_LONG).show();
+            return;
+        }
         try {
-            String appid = "&appid=231b88bacecc85e7d47891a53667356f";
+            String appid = "&appid=" + BuildConfig.OPENWEATHER_API_KEY;
             String system = "metric";
             if(!use_metric_system)
                 system = "imperial";
 
             String sUrl = baseURL + city + "&units=" + system + appid + "&lang=" + language;
-            Log.d(LOG_TAG, sUrl);
             URL url = new URL(sUrl);
             new LoadWebContentTask().execute(url);
         } catch (MalformedURLException e) {

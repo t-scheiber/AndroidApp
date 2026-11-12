@@ -24,6 +24,7 @@
     <string name="defaultCity">Wien</string>
     <string name="settings_output_text_default">Wähle einen Ort ...</string>
 
+    <string name="no_api_key">Kein API-Schlüssel konfiguriert. Setze OPENWEATHER_API_KEY und baue die App neu.</string>
     <string name="refresh">Erneut Laden</string>
     <string name="speedMetric">km/h</string>
     <string name="speedImperial">m/h</string>

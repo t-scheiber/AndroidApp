@@ -2,6 +2,32 @@ plugins {
     id 'com.android.application'
 }
 
+// Resolve the OpenWeather API key: environment variable, then .env file, then empty.
+def resolveOpenWeatherApiKey() {
+    def fromEnv = System.getenv('OPENWEATHER_API_KEY')
+    if (fromEnv != null && !fromEnv.trim().isEmpty()) {
+        return fromEnv.trim()
+    }
+    def envFile = rootProject.file('.env')
+    if (envFile.isFile()) {
+        for (String rawLine : envFile.readLines('UTF-8')) {
+            def line = rawLine.trim()
+            if (line.isEmpty() || line.startsWith('#')) continue
+            int eq = line.indexOf('=')
+            if (eq < 0) continue
+            if (line.substring(0, eq).trim() != 'OPENWEATHER_API_KEY') continue
+            def value = line.substring(eq + 1).trim()
+            if (value.length() >= 2 &&
+                    ((value.startsWith('"') && value.endsWith('"')) ||
+                     (value.startsWith("'") && value.endsWith("'")))) {
+                value = value.substring(1, value.length() - 1)
+            }
+            return value
+        }
+    }
+    return ''
+}
+
 android {
     namespace "com.example.bsaweatherapp"
     compileSdk 36
@@ -14,6 +40,13 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        def apiKey = resolveOpenWeatherApiKey().replace("\\", "\\\\").replace("\"", "\\\"")
+        buildConfigField "String", "OPENWEATHER_API_KEY", "\"${apiKey}\""
+    }
+
+    buildFeatures {
+        buildConfig true
     }
 
     buildTypes {

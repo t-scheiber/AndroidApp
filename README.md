@@ -18,13 +18,22 @@ Changing the city or the unit in the settings loads the forecast again. `MainAct
 - Android Gradle Plugin 9.4.0 and Gradle 9.7.1 through the Gradle wrapper.
 - `minSdkVersion` 24, `targetSdkVersion` 30 and `compileSdk` 36, from `BSAWeatherApp/app/build.gradle`.
 
-The OpenWeather API key is a string in `loadWebResult()` in `MainActivity.java`. The app does not read it from a configuration file. The committed key is no longer valid, and OpenWeather answers it with HTTP 401, so replace it with your own key before running the app.
+## API key
+
+The app reads the OpenWeather API key from `BuildConfig.OPENWEATHER_API_KEY`, which Gradle fills in at build time. Get a key at https://openweathermap.org/api. Gradle looks for it in this order:
+
+1. The environment variable `OPENWEATHER_API_KEY`.
+2. A line `OPENWEATHER_API_KEY=your-key` in `BSAWeatherApp/.env`. Copy `BSAWeatherApp/.env.example` to `BSAWeatherApp/.env` and fill in the value. Git ignores `.env`.
+3. An empty string.
+
+With an empty key the app starts, makes no request and shows a message that no API key is configured. Rebuild after you change the key, because it is compiled into the app. An older key that was committed to the history of this repository is no longer valid.
 
 ## Build and run
 
 1. Open the `BSAWeatherApp` folder in Android Studio. That folder contains `settings.gradle`, so the repository root is not the project root.
-2. Let Gradle sync. If it reports a missing SDK, set `sdk.dir` in `BSAWeatherApp/local.properties` to your Android SDK path. The committed file points to the author's machine.
-3. Run the `app` configuration on an emulator or device with Android 7.0 (API 24) or later. The app needs network access.
+2. Supply the API key as described above.
+3. Let Gradle sync. The repository does not contain `local.properties`, so Android Studio creates it with the path to your Android SDK. On the command line, set `sdk.dir` in `BSAWeatherApp/local.properties` yourself or set the `ANDROID_HOME` environment variable.
+4. Run the `app` configuration on an emulator or device with Android 7.0 (API 24) or later. The app needs network access.
 
 From the command line, run `./gradlew :app:assembleDebug` in `BSAWeatherApp`.
 
