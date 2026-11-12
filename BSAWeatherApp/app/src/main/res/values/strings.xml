@@ -44,6 +44,7 @@
     <string name="settings_output_text_summary" translatable="false">Display text summary.</string>
     <string name="settings_output_text_title" translatable="false">Display text</string>
 
+    <string name="no_api_key">No API key configured. Set OPENWEATHER_API_KEY and rebuild the app.</string>
     <string name="refresh">Refresh</string>
     <string name="speedMetric">kph</string>
     <string name="speedImperial">mph</string>

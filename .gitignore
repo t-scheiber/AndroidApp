@@ -16,3 +16,6 @@ output.json
 .cursor/
 .chatgpt/
 .gemini/
+
+# Local secrets
+.env
