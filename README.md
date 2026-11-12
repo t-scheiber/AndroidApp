@@ -18,7 +18,7 @@ Changing the city or the unit in the settings loads the forecast again. `MainAct
 - Android Gradle Plugin 9.4.0 and Gradle 9.7.1 through the Gradle wrapper.
 - `minSdkVersion` 24, `targetSdkVersion` 30 and `compileSdk` 36, from `BSAWeatherApp/app/build.gradle`.
 
-The OpenWeather API key is a string in `loadWebResult()` in `MainActivity.java`. The app does not read it from a configuration file.
+The OpenWeather API key is a string in `loadWebResult()` in `MainActivity.java`. The app does not read it from a configuration file. The committed key is no longer valid, and OpenWeather answers it with HTTP 401, so replace it with your own key before running the app.
 
 ## Build and run
 
